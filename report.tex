@@ -1,0 +1,146 @@
+\documentclass[11pt, english]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=20mm,
+	top=30mm,
+	right=20mm
+}
+
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+%\lstdefinestyle{myCustomMatlabStyle}{
+%	language=Matlab,
+%	numbers=left,
+%	stepnumber=1,
+%	numbersep=10pt,
+%	tabsize=4,
+%	showspaces=false,
+%	showstringspaces=false
+%}
+
+\usepackage{graphicx} 
+\usepackage{fancyvrb} 
+\usepackage{listings} 
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm} 
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{subfigure}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\newcommand\pythonstyle{\lstset{
+		language=Python,
+		%basicstyle=\ttm,
+		otherkeywords={self},             % Add keywords here
+		keywordstyle=\ttb\color{deepblue},
+		emph={MyClass,__init__},          % Custom highlighting
+		emphstyle=\ttb\color{deepred},    % Custom highlighting style
+		stringstyle=\color{deepgreen},
+		frame=tb,                         % Any extra options here
+		showstringspaces=false            % 
+		breaklines=true,% automatic line breaking
+		basicstyle=\small,% basic font style 
+		numbers=left,% display line numbers on the left side 
+		numberstyle=\scriptsize,% use small line numbers 
+		numbersep=10pt,% space between line numbers and code 
+		tabsize=3,% sizes of tabs 
+		showstringspaces=false,% do not replace spaces in strings by a certain character 
+		captionpos=b,% positioning of the caption below 
+		breaklines=true,% automatic line breaking 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+	\pythonstyle
+	\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+		\pythonstyle
+		\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+\lstdefinestyle{myCustomMatlabStyle2}{% setup listings 
+	language=R,% set programming language 
+	basicstyle=\small,% basic font style 
+	keywordstyle=\bfseries,% keyword style 
+	commentstyle=\ttfamily\itshape,% comment style 
+	numbers=left,% display line numbers on the left side 
+	numberstyle=\scriptsize,% use small line numbers 
+	numbersep=10pt,% space between line numbers and code 
+	tabsize=3,% sizes of tabs 
+	showstringspaces=false,% do not replace spaces in strings by a certain character 
+	captionpos=b,% positioning of the caption below 
+	breaklines=true,% automatic line breaking 
+	escapeinside={(*}{*)},% escaping to LaTeX 
+	fancyvrb=true,% verbatim code is typset by listings 
+	extendedchars=false,% prohibit extended chars (chars of codes 128--255) 
+	literate={"}{{\texttt{"}}}1{<-}{{$\leftarrow$}}1{<<-}{{$\twoheadleftarrow$}}1 
+	{~}{{$\sim$}}1{<=}{{$\le$}}1{>=}{{$\ge$}}1{!=}{{$\neq$}}1{^}{{$^\wedge$}}1,% item to replace, text, length of chars 
+	alsoletter={.<-},% becomes a letter 
+	alsoother={$},% becomes other 
+	otherkeywords={!=, ~, $, *, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},% other keywords 
+	deletekeywords={c}% remove keywords 
+}
+
+\newcommand{\grafico}[5]{
+	\begin{figure}
+		[h!tbp]
+		\centering
+		\includegraphics[scale=#2, angle=#3]{#1}
+		%\captionsetup{width=13cm}
+		\caption{#4\label{#5}}
+	\end{figure}
+}
+
+\newcommand{\su}[2]{\sum\limits_{#1}^{#2}}
+
+\setlength{\parindent}{0pt}
+\begin{document}
+\title{Computing Project - Lasso Algorithm}
+\author{Adam Lee, Viviana Rosales, Carlos Rodriquez, Katrina Walker }
+\date{\today}
+\maketitle
+\section*{Implementation for a Time-Series Analysis}
+\section*{Demo}
+\section*{How it Works}
+
+\end{document}
