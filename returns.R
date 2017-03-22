@@ -1,14 +1,12 @@
+#########################
+# Returns from Data     #
+#########################
 
-######## Apply GLASSO algorithm to a panel of financial returns ######## 
+# Import Data  -----------------------------------------------------------
 
-rm(list = ls())
 dir <- "~/glasso_algorithm-"
 setwd(dir)
 
-# Import GLASSO  -----------------------------------------------------------
-source('glasso.R')
-
-# Shape Data -----------------------------------------------------------
 # Raw data
 amzn <- read.table("data/AMZN.csv", header = TRUE, sep = ",")
 ba <- read.table("data/BA.csv", header = TRUE, sep = ",")
@@ -57,27 +55,4 @@ aapl <- diff( log( p5 ) )*100
 nke <- diff( log( p6 ) )*100
 
 # Pack dates and returns in a data frame
-returns <- cbind.data.frame(amzn, ba, ibm, orcl, aapl, nke)
-
-# Construct a covariance matrix with data to test -----------------------------------
-M <- as.matrix(returns)
-
-k <- ncol(M) # number of variables
-n <- nrow(M) # number of subjects
-
-# Create means for each column
-M_mean <- matrix(data=1, nrow=n) %*% cbind(mean(amzn),mean(ba),mean(ibm),mean(orcl),mean(aapl), mean(nke)) 
-
-# Create a difference matrix
-D <- M - M_mean
-
-# Create the covariance matrix
-Y <- (n-1)^-1*t(D) %*% D
-
-# Check Y using cov function for comparison 
-Y2 <- cov(M) 
-
-# Run GLASSO -----------------------------------
-print(Theta_ident <- GLASSO(Y))
-
-GLASSO(M)
+Y <- cbind.data.frame(amzn, ba, ibm, orcl, aapl, nke)
